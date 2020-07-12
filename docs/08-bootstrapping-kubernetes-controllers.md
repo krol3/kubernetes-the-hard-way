@@ -116,10 +116,10 @@ EOF
 
 ### Configure the Kubernetes Controller Manager
 
-Move the `kube-controller-manager` kubeconfig into place:
+Copy the `kube-controller-manager` kubeconfig into place:
 
 ```
-sudo mv kube-controller-manager.kubeconfig /var/lib/kubernetes/
+sudo cp kube-controller-manager.kubeconfig /var/lib/kubernetes/
 ```
 
 Create the `kube-controller-manager.service` systemd unit file:
@@ -154,10 +154,10 @@ EOF
 
 ### Configure the Kubernetes Scheduler
 
-Move the `kube-scheduler` kubeconfig into place:
+Copy the `kube-scheduler` kubeconfig into place:
 
 ```
-sudo mv kube-scheduler.kubeconfig /var/lib/kubernetes/
+sudo cp kube-scheduler.kubeconfig /var/lib/kubernetes/
 ```
 
 Create the `kube-scheduler.service` systemd unit file:
@@ -215,6 +215,8 @@ etcd-1               Healthy   {"health": "true"}
 In this section you will provision an external load balancer to front the Kubernetes API Servers. The `kubernetes-the-hard-way` static IP address will be attached to the resulting load balancer.
 
 ### Provision a Network Load Balancer
+
+Login to `loadbalancer` instance using SSH Terminal.
 
 ```
 #Install HAProxy
