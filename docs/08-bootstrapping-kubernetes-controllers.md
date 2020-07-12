@@ -24,10 +24,10 @@ Download the official Kubernetes release binaries:
 
 ```
 wget -q --show-progress --https-only --timestamping \
-  "https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-apiserver" \
-  "https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-controller-manager" \
-  "https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-scheduler" \
-  "https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl"
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kube-apiserver" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kube-controller-manager" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kube-scheduler" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kubectl"
 ```
 
 Reference: https://kubernetes.io/docs/setup/release/#server-binaries
@@ -194,7 +194,6 @@ EOF
 
 > Allow up to 10 seconds for the Kubernetes API Server to fully initialize.
 
-
 ### Verification
 
 ```
@@ -215,7 +214,6 @@ etcd-1               Healthy   {"health": "true"}
 
 In this section you will provision an external load balancer to front the Kubernetes API Servers. The `kubernetes-the-hard-way` static IP address will be attached to the resulting load balancer.
 
-
 ### Provision a Network Load Balancer
 
 ```
@@ -225,7 +223,7 @@ loadbalancer# sudo apt-get update && sudo apt-get install -y haproxy
 ```
 
 ```
-loadbalancer# cat <<EOF | sudo tee /etc/haproxy/haproxy.cfg 
+loadbalancer# cat <<EOF | sudo tee /etc/haproxy/haproxy.cfg
 frontend kubernetes
     bind 192.168.5.30:6443
     option tcplog
